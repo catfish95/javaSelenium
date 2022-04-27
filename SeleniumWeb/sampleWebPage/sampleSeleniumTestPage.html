@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Sample Selenium Test Page</title>
+        <style>
+            #div1, #div2 {
+              float: left;
+              width: 100px;
+              height: 35px;
+              margin: 10px;
+              padding: 10px;
+              border: 1px solid black;
+            }
+            </style>
+            <script>
+            function allowDrop(ev) {
+              ev.preventDefault();
+            }
+            
+            function drag(ev) {
+              ev.dataTransfer.setData("text", ev.target.id);
+            }
+            
+            function drop(ev) {
+              ev.preventDefault();
+              var data = ev.dataTransfer.getData("text");
+              ev.target.appendChild(document.getElementById(data));
+            }
+            </script>
+    </head>
+    <body>
+        <main>
+            <div>
+              <p>
+                  Validate Numbers Only:  
+                  <input type="number">
+              </p>
+              <p>
+                Validate Letters only:  
+                <input type="search">
+            </p>
+            <p>
+                Validate dropdown box:  
+                <select>
+                    <option value="1">Item 1</option>
+                    <option value="2">Item 2</option>
+                    <option value="3">Item 3</option>
+                </select>
+            </p>
+            <p>
+                Validate Date
+                <input type="date" id="birthday" name="birthday"> 
+            </p>
+            <p>
+                Validate Links are properly formed: <br>
+                <a href="http://google.com">Working google link</a><br>
+                <a href="http://asdviunienuhalsdjfkjasdf.com">non-working link</a>
+            </p>
+            <p>
+                Overlaying Buttons: <label id="buttonLabel"> Button not yet pressed</label> <br>
+                <button style="position: fixed">Button 1</button>
+                <button style="position: fixed;">Button 2</button> <br>
+                
+            </p>
+            <br>
+            <div>
+                Validate Drag and Drop: <br>
+                <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
+                    <img src="https://www.citizensfla.com/o/citizensfla-theme-ep/images/custom/logo.png" draggable="true" ondragstart="drag(event)" id="drag1" width="88" height="31">
+                </div>
+                
+                <div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
+                </div>
+            </div>
+            <br>
+            <br>
+            <br><br>
+            <p>
+                Adding Elements to the screen: <br>
+                <button>Add an input box</button>
+            </p>
+
+            
+        </main>
+        <script>
+            
+        </script>
+    </body>   
+</html>
